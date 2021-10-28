@@ -12,11 +12,11 @@
 // port for connecting IR receiver
 #define IRR_PORT PORTD
 #define IRR_DDR DDRD
-#define IRR_PIN PD0
+#define IRR_PIN PD1
 #define IRR_PIN_PORT PIND
-#define IRR_INT INT0
-#define IRR_VECT INT0_vect
-#define IRR_ISC ISC00
+#define IRR_INT INT1
+#define IRR_VECT INT1_vect
+#define IRR_ISC ISC10
 // init IR receiver pin port
 #define init_IRR_PIN()  \
 IRR_DDR&=~(1<<IRR_PIN); \
