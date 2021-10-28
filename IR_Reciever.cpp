@@ -282,7 +282,7 @@ extern uint8_t check_new_packet(struct IR_Packet * received_packet)
 }
 
 // external interrupt, catches rising and falling edges pulses to read the data according to the NEC protocol
-ISR(INT0_vect)
+ISR(IRR_VECT)
 {
 	// skip next packets if the current packet not read by client application yet
 	if (receiver_state == RECEIVER_STATE_READY)

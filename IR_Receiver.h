@@ -14,12 +14,15 @@
 #define IRR_DDR DDRD
 #define IRR_PIN PD2
 #define IRR_PIN_PORT PIND
+#define IRR_INT INT0
+#define IRR_VECT INT0_vect
+#define IRR_ISC ISC00
 // init IR receiver pin port
 #define init_IRR_PIN()  \
 IRR_DDR&=~(1<<IRR_PIN); \
 IRR_PORT|=(1<<IRR_PIN); \
-EICRA|=(1<<ISC00); \
-EIMSK|=(1<<INT0);
+EICRA|=(1<<IRR_ISC); \
+EIMSK|=(1<<IRR_INT);
 //
 #define NEC_MAX_PACKET_BIT_NUMBER 32
 
