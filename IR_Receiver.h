@@ -17,8 +17,14 @@
 #define IRR_INT INT1
 #define IRR_VECT INT1_vect
 #define IRR_ISC ISC10
+#define EN_PORT PORTD
+#define EN_DDR DDRD
+#define EN_PIN PD0
+#define EN_PIN_PORT PIND
 // init IR receiver pin port
 #define init_IRR_PIN()  \
+EN_DDR|=(1<<EN_PIN); \
+EN_PORT|=(1<<EN_PIN); \
 IRR_DDR&=~(1<<IRR_PIN); \
 IRR_PORT|=(1<<IRR_PIN); \
 EICRA|=(1<<IRR_ISC); \
