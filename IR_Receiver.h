@@ -46,12 +46,20 @@ struct IR_Packet
 };
 
 // init receiver
-extern void init_receiver();
+#ifdef __cplusplus
+extern "C" void init_receiver();
+#else
+extern void init_receiver(void);
+#endif
 
 // check if new data packet received
 // 0 - no, otherwise yes
 // received_packet is a pointer to the IR_Packet structure to receive the data
 // the packet updated only if the function result is not 0
+#ifdef __cplusplus
+extern "C" uint8_t check_new_packet(struct IR_Packet * received_packet);
+#else
 extern uint8_t check_new_packet(struct IR_Packet * received_packet);
+#endif
 
 #endif /* IR_RECEIVER_H_ */
